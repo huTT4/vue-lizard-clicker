@@ -23,7 +23,7 @@ export const useAppStore = defineStore('app', {
       }
     },
     async completeTask(task) {
-      if (!this.user.tasks.find(t => t.id === task.id)) {
+      if (!Object.keys(this.user.tasks).find(id => id === String(task.id))) {
         await completeTask(this.user, task)
       }
     },
